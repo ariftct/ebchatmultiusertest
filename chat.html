@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title> Demo site</title>
+		
+	<script language="javascript">
+setInterval(function(){
+   window.location.reload(1);
+}, 298000);
+</script>
+		
+		
+  <script type="text/javascript">
+    function convert()
+    {
+	  var text=document.getElementById("urlconvert").value;
+	  var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+	  var text1=text.replace(exp, '<a target="blank" href="$1">$1</a>');
+	  var exp2 =/(^|[^\/])(www\.[\S]+(\b|$))/gim;
+	  var rplc=text1.replace(exp2, '$1<a target="blank" href="http://$2">click here</a>');
+      document.getElementById("message").value = rplc;
+      
+    }
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+		<script>
+        function formrest(){
+            document.getElementById('message').value='';
+            document.getElementById('mail').value='';
+            document.getElementById('phone').value='';
+            }
+    </script>
+  <style>
+  body{
+  width:90%;
+  margin:10px
+  }
+
+ 
+  .FixedHeightContainer
+{
+  float:left;
+  height: 120px;
+  width:100%; 
+  padding:2px; 
+  margin-bottom:10px;  
+ background-color:#54626F;
+}
+.Content
+{
+  height:117px;
+   overflow:auto;
+   background-color:white;
+   color:black;
+   border:5px solid
+}
+
+ 
+        #status {
+           
+            padding: 10px 12px 10px 12px;
+            width: 40px;
+            margin: 20px;
+            
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+        }
+        #status.online {
+            color: green;
+        }        
+        #status.offline {
+            color: black;
+        }
+        #status.online::before, #status.offline::before {
+            width: 15px;
+            height: 15px;
+            content: "";
+            border-radius: 15px;
+            box-shadow: 0 0 8px;
+            position: absolute;
+            left: -7px;
+            top: 10px;
+        }
+        #status.online::before {
+            background: green;
+        }
+        #status.offline::before {
+            background: red;
+			}
+		textarea
+		{
+		border:2px solid blue;
+		}
+.deltt
+		{
+		background-color:red;
+		color:white;
+		
+		}
+		.btnn{border:none;color:red;}
+		.clr {color:red;}
+
+  </style>
+    </head>
+    <body>
+	
+    
+    
+    
+        
+            <a href="#" class="" style="margin-left:25px">Chat-boot</a>
+            <span  id="nav-mobile" class="right">
+                <button class="waves-effect blue"><a onclick="LogOut()">Log Out</a>
+                Logout</button>
+            </span>
+			
+        
+   
+ 
+        
+ <!-- scrolling code using height -->
+    
+        <div class="FixedHeightContainer">
+  <div id="data" class="Content">
+        <ul style="padding:10px; line-height:160%; " >
+            <li id="chat" > Chat</li>
+			
+		
+        </ul>
+		
+		</div>
+		</div>
+		
+        
+        <textarea rows="2" cols="10" id="message" placeholder="write here"></textarea> 
+       
+	   
+	   
+	<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar clr">
+  <div class="mdl-snackbar__text"></div>
+  <button class="mdl-snackbar__action btnn" type="button"></button>
+</div>
+
+
+        <button class="btn waves-effect waves-light blue" type="submit" name="action" onclick="sendMessage(); formrest();  convert(); ">Submit
+  </button>  <span id="status"></span>  	
+		
+ <button type="button" onclick="deleteAll()" class="deltt">DELETE</button>
+ 
+
+ 
+ <br>
+ 
+
+ 
+ 
+ 
+
+ <span>Reload in-</span> <span id="timer"></span>
+
+      <!-- custom js -->
+      <script>
+         window.onload = function () {
+            var minute = 4;
+            var sec = 60;
+            setInterval(function () {
+               document.getElementById("timer").innerHTML =
+                  minute + " : " + sec;
+               sec--;
+               if (sec == 00) {
+                  minute--;
+                  sec = 60;
+                  if (minute == 0 && sec == 1) {
+                     minute = 00;
+                     sec = 00;
+
+                  }
+               }
+            }, 1000);
+         };
+      </script>
+ 
+ 
+ 
+ 
+ 
+ 
+ <br>
+ <br>
+ <h5> Share Link </h5>
+  <textarea rows="2" cols="10" id="urlconvert" placeholder="paste link here"></textarea> 
+ 
+  <input type="button" value="Convert" onclick="convert();">
+   <input type="button" value="Clear" onclick="clearContent();">
+   
+   
+   
+ <br>
+ <br>
+  <a href="https://vocaroo.com/upload" target="blank"> <button> Share-Audio </button></a>   
+  
+  <a href="https://usaupload.com/register_non_user" target="blank"> <button> Share-files </button></a>
+  
+  
+
+<script>
+function clearContent()
+{
+    document.getElementById("urlconvert").value='';
+    document.getElementById("message").value='';
+}
+</script>
+
+       
+       
+        <!--Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="snackber.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+
+        <script src="js/chatroom.js"></script>
+ 
+   
+  
+  
+  <script>
+function myFunction() {
+  document.getElementById("myForm").reset();
+}
+</script>
+
+  <script>    
+    var hint = document.getElementById("hint");
+    
+    // Defining function to update connection status
+    function updateConnectionStatus() {  
+        var status = document.getElementById("status");
+        if(navigator.onLine) {
+            status.innerHTML = "Online";
+            status.classList.add("online");
+            status.classList.remove("offline");                        
+        } else {
+            status.innerHTML = "Offline";
+            status.classList.add("offline");
+            status.classList.remove("online");            
+        }
+    }
+
+    // Attaching event handler for the load event
+    window.addEventListener("load", updateConnectionStatus);
+    
+    // Attaching event handler for the online event
+    window.addEventListener("online", function(e) {
+        updateConnectionStatus();
+        hint.innerHTML = "And we're back!";
+    });
+    
+    // Attaching event handler for the offline event
+    window.addEventListener("offline", function(e) {        
+        updateConnectionStatus();
+        hint.innerHTML = "Hey, it looks like you're offline.";
+    });
+    </script>
+	
+	
+	<br>
+
+
+  <input type="text"  placeholder="room1"  type id="room1" >  
+  <input type="submit" value="room1" onclick = "room1()">
+  
+   <input type="text" placeholder="type room1" id="room2" >  
+  <input type="submit"  value="room2" onclick = "room2()">
+  
+   <input type="text"  placeholder="type room3"  id="room3" >  
+  <input type="submit"value="room3" onclick = "room3()">
+ 
+  
+  
+  
+  
+
+
+ 
+    </body>
+
+</html>
